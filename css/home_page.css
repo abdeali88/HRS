@@ -1,0 +1,93 @@
+.first-image {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background: url('../img/hostel.jpg');
+    z-index: 1;
+}
+
+.image-title {
+    padding: 259px 0px;
+    font-family: 'Lobster', cursive;
+}
+
+.text-title h1 {
+    font-size: 55px;
+    color: rgb(230, 230, 200);
+    margin: 0 auto;
+    text-shadow: 3px 4px black;
+    padding: 10px;
+}
+
+.color {
+    background-color: black;
+}
+
+.button {
+    padding: 20px;
+    font-size: 24px;
+    color: white;
+    text-shadow: 1px 1px rgb(0, 0, 0);
+    background-color: rgb(209, 137, 49);
+    box-shadow: 1px 1px rgb(255, 166, 0);
+}
+
+.navbar-img {
+    color: rgb(209, 171, 96);
+    text-shadow: 0.5px 0.5px #D79E30;
+    font-size: 30px;
+    font-family: 'Lobster', cursive;
+}
+
+.navbar-img img {
+    float: left;
+    height: 37px;
+    width: 40px;
+    color: #D79E30;
+    margin-right: 12px;
+    margin-top: -7px;
+}
+
+.nav-color {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.navbar-color li a {
+    color: #D79E30;
+    font-family: 'Acme', sans-serif;
+    font-size: 20px;
+}
+
+footer#main-footer {
+    background: #262626;
+    padding: 60px 0 30px 0;
+    color: #e6e6e6;
+    font-size: 11px;
+    line-height: 1.4em;
+}
+
+.text-4 {
+    font-family: 'Lobster', cursive;
+    text-decoration: none;
+    font-size: 28px;
+}
+
+.text-3 {
+    padding-top: 20px;
+    color: #FAFAFA;
+    font-size: 13px;
+}
+
+.icon-list {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.icon-color {
+    color: #FF8F00;
+}
+
+.icon-list li {
+    float: left;
+    padding: 10px;
+}
