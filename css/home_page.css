@@ -19,10 +19,6 @@
     padding: 10px;
 }
 
-.color {
-    background-color: black;
-}
-
 .button {
     padding: 20px;
     font-size: 24px;
@@ -33,29 +29,22 @@
 }
 
 .navbar-img {
-    color: rgb(209, 171, 96);
     text-shadow: 0.5px 0.5px #D79E30;
     font-size: 30px;
     font-family: 'Lobster', cursive;
+    color: rgb(209, 171, 96) !important;
 }
 
 .navbar-img img {
     float: left;
-    height: 37px;
-    width: 40px;
-    color: #D79E30;
-    margin-right: 12px;
-    margin-top: -7px;
-}
-
-.nav-color {
-    background-color: rgba(0, 0, 0, 0.7);
+    height: 45px;
+    width: 50px;
 }
 
 .navbar-color li a {
-    color: #D79E30;
     font-family: 'Acme', sans-serif;
     font-size: 20px;
+    color: #D79E30 !important;
 }
 
 footer#main-footer {
