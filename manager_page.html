@@ -57,7 +57,7 @@
 
                     <div class="col-md-3">
                         <h3 class="mb15">Login</h3>
-                        <form name="loginform" action="/action_page.php" method="GET">
+                        <form name="loginform" action="/action_page.php" method="POST">
                             <div class="form-group "><i class="fa fa-user input-icon input-icon-show"></i>
                                 <label>Email</label>
                                 <input id="email" class="form-control" placeholder="Enter Email" type="email" required>
@@ -75,7 +75,7 @@
 
                     <div class="col-md-4">
                         <h3 class="mb15">Personal Details</h3>
-                        <form name="singupform" action="/action_page.php" method="GET" onSubmit="return signupmethod()">
+                        <form name="singupform" action="/action_page.php" method="POST" onSubmit="return signupmethod()">
                             <div class="form-group "><i class="fa fa-user input-icon input-icon-show"></i>
                                 <label>Full Name</label>
                                 <input id="fullname" class="form-control" placeholder="Enter Full Name" type="text" required>
