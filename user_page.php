@@ -1,3 +1,5 @@
+<?php include("connect.php") ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -9,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Acme|Berkshire+Swash|Lobster|PT+Sans+Narrow|Patua+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Black+Ops+One" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/font-awesome.min.css ">
+    <link rel="stylesheet" href="css/font-awesome.min.css ">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -61,7 +63,7 @@
 
                     <div class="col-md-4">
                         <h3 class="mb15">Login</h3>
-                        <form name="loginform" action="connect.php" method="POST">
+                        <form name="loginform" action="user_page.php" method="POST">
                             <div class="form-group "><i class="fa fa-user input-icon input-icon-show"></i>
                                 <label>Email</label>
                                 <input id="email" name="user_email_login" class="form-control" placeholder="Enter Email" type="email" required>
@@ -70,16 +72,16 @@
                                 <label>Password</label>
                                 <input id="password" name="user_pass_login" class="form-control" type="password" placeholder="Enter Password" required>
                             </div>
-                            <input class="btn btn-info" type="submit" value="Sign in">
+                            <input class="btn btn-info" type="submit" value="Sign in" name="login_user">
                         </form>
                     </div>
 
                     <div class="col-md-1">
                     </div>
-
+    
                     <div class="col-md-4">
                         <h3 class="mb15">New To Hostel Guru?</h3>
-                        <form name="singupform" action="connect.php" method="POST" onSubmit="return signupmethod()">
+                        <form name="singupform" action="user_page.php" method="POST" onSubmit="return signupmethod()">
                             <div class="form-group "><i class="fa fa-user input-icon input-icon-show"></i>
                                 <label>Full Name</label>
                                 <input id="fullname" name="user_name_signup" class="form-control" placeholder="Enter Full Name" type="text" required>
@@ -96,7 +98,7 @@
                                 </div>
                                 <span id="pass_type"></span>
                             </div>
-                            <input class="btn btn-info" type="submit" value="Sign up">
+                            <input class="btn btn-info" type="submit" value="Sign up" name="register_user">
                             <input class="btn btn-info" type="reset" value="Clear" style="margin-left: 20px; padding: 6px 18px">
                         </form>
                     </div>
