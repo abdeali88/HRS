@@ -61,29 +61,33 @@ if(isset($_POST['register_manager']))
         if(mysqli_num_rows($results_1)>0)
         {
             array_push($errors,"Email is already taken");
-            ?> <script> alert("Email is already Registered!);</script> <?php   
+            ?> <script> alert("Email is already Registered!");</script> <?php   
         }
         elseif(mysqli_num_rows($results_2)>0)
         {
             array_push($errors,"Manager Contact is already taken");
-            ?> <script> alert('<?php echo "$$man_contact" ?>' +" is already Registered!);</script> <?php   
+            ?> <script> alert("Manager Contact is already Registered!");</script> <?php   
         }
         elseif(mysqli_num_rows($results_4)>0)
         {
             array_push($errors,"Registration Number is already taken");
-            ?> <script> alert("Registration Number is already Registered!);</script> <?php   
+            ?> <script> alert("Hostel Registration Number is already Registered!");</script> <?php   
         }
         elseif(mysqli_num_rows($results_3)>0)
         {
             array_push($errors,"Hostel Contact is already taken");
-            ?> <script> alert('<?php echo "$$hostel_contact" ?>' +" is already Registered!);</script> <?php   
+            ?> <script> alert("Hostel Contact is already Registered!");</script> <?php   
         }
 
         $targetDir = "uploads/";
         $allowTypes = array('jpg','png','jpeg','gif');
     
     $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = '';
+
+
     if(!empty(array_filter($_FILES['files']['name']))){
+        if(count($errors)==0){
+    
         foreach($_FILES['files']['name'] as $key=>$val){
             // File upload path
             $fileName = basename($_FILES['files']['name'][$key]);
@@ -99,51 +103,46 @@ if(isset($_POST['register_manager']))
                 }else{
                     array_push($errors,"Error in uploading Image");
                     ?><script>alert("Error in uploading Image!");</script><?php
-                    $errorUpload .= $_FILES['files']['name'][$key].', ';
+                    // $errorUpload .= $_FILES['files']['name'][$key].', ';
                 }
             }else{
                 array_push($errors,"FileType is invalid");
                 ?><script>alert("INVALID Image Type!");</script><?php
-                $errorUploadType .= $_FILES['files']['name'][$key].', ';
+                // $errorUploadType .= $_FILES['files']['name'][$key].', ';
             }
         }
+    }
         
-        if(!empty($insertValuesSQL)){
+        if(!empty($insertValuesSQL) && count($errors)==0){
             // Insert image file name into database
             $insertValuesSQL = trim($insertValuesSQL,',');
             $insert = $conn->query("INSERT INTO images (file_name, uploaded_on,reg_no) VALUES $insertValuesSQL");
             if($insert){
-                $errorUpload = !empty($errorUpload)?'Upload Error: '.$errorUpload:'';
-                $errorUploadType = !empty($errorUploadType)?'File Type Error: '.$errorUploadType:'';
-                $errorMsg = !empty($errorUpload)?'<br/>'.$errorUpload.'<br/>'.$errorUploadType:'<br/>'.$errorUploadType;
-                $statusMsg = "Files are uploaded successfully.".$errorMsg;
+                // $errorUpload = !empty($errorUpload)?'Upload Error: '.$errorUpload:'';
+                // $errorUploadType = !empty($errorUploadType)?'File Type Error: '.$errorUploadType:'';
+                // $errorMsg = !empty($errorUpload)?'<br/>'.$errorUpload.'<br/>'.$errorUploadType:'<br/>'.$errorUploadType;
+                // $statusMsg = "Files are uploaded successfully.".$errorMsg;
+              
+                    $insert_manager = "INSERT INTO manager(email,name,password,contact,bank_name,branch_name,account_no,ifsc_code) values('$man_email','$man_name','$pass_signup','$man_contact','$bank_name','$branch_name','$acc_no','$ifsc_code')";
+                    $insert_hostel = "INSERT INTO hostel(reg_no,hostel_name,address,city,zip_code,hostel_contact,floors,capacity,no_of_rooms,fees,mess,wifi,gym,bank,medical,telephone,amphi,transport,laundry,study,facilities,man_email) values('$reg_no','$hostel_name','$address','$city','$zip_code','$hostel_contact','$floors','$capacity','$rooms','$fees','$mess','$wifi','$gym','$bank','$medical','$telephone','$amphi','$transport','$laundry','$reading','$other_facilities','$man_email')";
+                    mysqli_query($conn,$insert_manager);
+                    mysqli_query($conn,$insert_hostel);
+                    $_SESSION['manager_email'] = $man_email;
+                    $_SESSION['manager_name'] = $man_name;
+                    $_SESSION['success'] =  "You are logged in";
+                    header('location:manager_dashboard.php');
             }else{
-                $statusMsg = "Sorry, there was an error uploading your file.";
+                // $statusMsg = "Sorry, there was an error uploading your file.";
                 array_push($errors,"ERROR in uploading file");
-                ?><script>alert("There was an error uploading your file!");</script><?php
-                
+                ?><script>alert("There was an error uploading your file!");</script><?php    
             }
         }
     }else{
-        $statusMsg = 'Please select a file to upload.';
+        // $statusMsg = 'Please select a file to upload.';
         array_push($errors,"No file selected");
         ?><script>alert("Please select a file to upload!");</script><?php
-
     }
     
-    // Display status message
-
-        if(count($errors)==0)
-        {
-            $insert_manager = "INSERT INTO manager(email,name,password,contact,bank_name,branch_name,account_no,ifsc_code) values('$man_email','$man_name','$pass_signup','$man_contact','$bank_name','$branch_name','$acc_no','$ifsc_code')";
-            $insert_hostel = "INSERT INTO hostel(reg_no,hostel_name,address,city,zip_code,hostel_contact,floors,capacity,no_of_rooms,fees,mess,wifi,gym,bank,medical,telephone,amphi,transport,laundry,study,facilities,man_email) values('$reg_no','$hostel_name','$address','$city','$zip_code','$hostel_contact','$floors','$capacity','$rooms','$fees','$mess','$wifi','$gym','$bank','$medical','$telephone','$amphi','$transport','$laundry','$reading','$other_facilities','$man_email')";
-            mysqli_query($conn,$insert_manager);
-            mysqli_query($conn,$insert_hostel);
-            $_SESSION['manager_email'] = $man_email;
-            $_SESSION['manager_name'] = $man_name;
-            $_SESSION['success'] =  "You are logged in";
-            header('location:manager_dashboard.php');
-        }
     }
 
 }
