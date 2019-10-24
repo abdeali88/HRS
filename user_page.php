@@ -1,4 +1,4 @@
-<?php include("connect.php") ?>
+<?php include("user_connect.php") ?>
 
 <!DOCTYPE html>
 <html>
@@ -30,19 +30,19 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item ">
-                            <a class="nav-link" href="home_page_1.html">HOME 
+                            <a class="nav-link" href="home_page_1.php">HOME 
                                         </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="hostel_page.html">HOSTELS</a>
+                            <a class="nav-link" href="hostel_page.php">HOSTELS</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="user_page.html">USER
+                            <a class="nav-link" href="user_page.php">USER
                                  <span class="sr-only">(current)</span>
                                 </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="manager_page.html">MANAGER</a>
+                            <a class="nav-link" href="manager_page.php">MANAGER</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">CONTACT</a>
