@@ -42,15 +42,15 @@ if(isset($_SESSION['logout'])){
                             <a class="nav-link" href="home_page_1.html">HOME</a>
                         </li>
                         <li class="nav-item  active">
-                            <a class="nav-link" href="hostel_page.html">HOSTELS
+                            <a class="nav-link" href="hostel_page.php">HOSTELS
                                     <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="user_page.html">USER</a>
+                            <a class="nav-link" href="user_page.php">USER</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="manager_page.html">MANAGER</a>
+                            <a class="nav-link" href="manager_page.php">MANAGER</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">CONTACT</a>
