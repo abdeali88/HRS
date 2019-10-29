@@ -3,6 +3,14 @@ session_start();
 if(!isset($_SESSION['success'])){
     header('location:user_page.php');  
 }
+$host = "localhost";
+$dbusername = "root";
+$dbpassword = "";
+$dbname = "hrs";
+$conn = mysqli_connect($host,$dbusername,$dbpassword,$dbname);
+if(mysqli_connect_error()){
+    die('Connect error ('.mysqli_connect_errno().')'.mysqli_connect_error());
+}
 
 ?>
 
@@ -13,8 +21,8 @@ if(!isset($_SESSION['success'])){
     <title>Hostel Management</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/trevo.css">
     <link rel="stylesheet" type="text/css" href="css/hostel_page_1.css">
+    <link rel="stylesheet" type="text/css" href="css/trevo.css">
     
     <link href="https://fonts.googleapis.com/css?family=Acme|Berkshire+Swash|Lobster|PT+Sans+Narrow|Patua+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
@@ -98,14 +106,14 @@ if(!isset($_SESSION['success'])){
                 <div class="col-md-2">
                     <div class="form-group "><i class="fa fa-map-marker input-icon "></i>
                         <label class="labell">Where</label> 
-                                <input id="hostel_city" required name="city" class=" form-control " placeholder="City, Hostel Name" type="text" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
+                                <input id="hostel_city" required name="city" class="form-control " placeholder="City, Hostel Name" type="text" style="position: relative; vertical-align: top; background-color: transparent;">
                     </div>
                 </div>
 
                 <div class="col-md-2">
                     <div class="form-group "><i class="fa fa-inr input-icon "></i>
                         <label class="labell">Fees</label>
-                        <input id="Hotel_location" required name="fees" class=" form-control " placeholder="Budget" type="text" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
+                        <input id="Hotel_location" required name="fees" class="form-control" placeholder="Budget" type="text" style="position: relative; vertical-align: top; background-color: transparent;">
                     </div>
                 </div>
 
@@ -114,23 +122,23 @@ if(!isset($_SESSION['success'])){
                         <label class="labell">Rating</label>   
                             <div class="stars">
         
-                                  <input class="star star-5" name="five" id="star-5" type="radio" name="star"/>
+                                  <input class="star star-5" name="five" id="star-5" type="radio" />
                               
                                   <label class="star star-5" for="star-5"></label>
                               
-                                    <input class="star star-4 " name="four" id="star-4" type="radio" name="star"/>
+                                    <input class="star star-4 " name="four" id="star-4" type="radio" />
                               
                                   <label class="star star-4" for="star-4"></label>
                               
-                                  <input class="star star-3" name="three" id="star-3" type="radio" name="star"/>
+                                  <input class="star star-3" name="three" id="star-3" type="radio"/>
                               
                                   <label class="star star-3" for="star-3"></label>
                               
-                                  <input class="star star-2" name="two" id="star-2" type="radio" name="star"/>
+                                  <input class="star star-2" name="two" id="star-2" type="radio"/>
                               
                                   <label class="star star-2" for="star-2"></label>
                               
-                                  <input class="star star-1" name="one" id="star-1" type="radio" name="star"/>
+                                  <input class="star star-1" name="one" id="star-1" type="radio"/>
                           
                                   <label class="star star-1" for="star-1"></label>
                 
@@ -166,6 +174,7 @@ if(!isset($_SESSION['success'])){
 
 
     <?php include('hostel_display.php');?>
+    
 
     <footer id="main-footer">
         <div class="container">
@@ -232,7 +241,6 @@ if(!isset($_SESSION['success'])){
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/custom/hotels.js" type="text/javascript"></script>
 
 
 </body>
