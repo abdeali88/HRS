@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -20,7 +24,7 @@
     <div class="navbar-color">
         <nav class="navbar navbar-expand-lg navbar-light static-top" style="background: rgba(0,0,0,0.7);">
             <div class="container">
-                <a class="navbar-brand navbar-img" href="home_page_1.html">
+                <a class="navbar-brand navbar-img" href="home_page_1.php">
                     <img src="img/hotel.png">&nbsp; Hostel Guru
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,22 +33,48 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="home_page_1.html">HOME</a>
+                            <a class="nav-link" href="home_page_1.php">HOME</a>
                         </li>
                         <li class="nav-item  active">
-                            <a class="nav-link" href="hostel_page.html">HOSTELS
+                            <a class="nav-link" href="hostel_page.php">HOSTELS
                                     <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="user_page.html">USER</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="manager_page.html">MANAGER</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">CONTACT</a>
-                        </li>
+        
+                        <?php
+                            if(isset($_SESSION['success']))
+                            {
+                                if(isset($_SESSION['manager_email']))
+                                {
+                                echo "<li class='nav-item'>";
+                                echo "<a class='nav-link' href='manager_dashboard.php'>DASHBOARD</a>";
+                                echo "</li>";
+                                }
+                                elseif(isset($_SESSION['user_email'])){
+                                echo "<li class='nav-item'>";
+                                echo "<a class='nav-link' href='user_dashboard.php'>DASHBOARD</a>";
+                                echo "</li>";
+                                }
+                                echo "<li class='nav-item'>";
+                                echo "<a class='nav-link' id='logout' value='Logout' name='logout_user' href='logout_manager.php'>LOGOUT</a>";
+                                echo "<script type='text/javascript'>";
+                                echo "document.getElementById('logout').onclick = function ()";
+                                {
+                                    echo 'location.href = "logout_manager.php"';
+                                }
+                                echo "</script>";
+                                echo "</li>";
+                            }
+                            else
+                            {
+                                echo "<li class='nav-item'>";
+                                echo "<a class='nav-link' href='user_page.php'>USER</a>";
+                                echo "</li>";
+                                echo "<li class='nav-item'>";
+                                    echo "<a class='nav-link' href='manager_page.php'>MANAGER</a>";
+                                echo "</li>";
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>
