@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2019 at 07:38 PM
+-- Generation Time: Oct 29, 2019 at 12:10 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -50,15 +50,19 @@ CREATE TABLE `hostel` (
   `laundry` int(11) DEFAULT NULL,
   `study` int(11) DEFAULT NULL,
   `facilities` varchar(200) DEFAULT NULL,
-  `man_email` varchar(50) DEFAULT NULL
+  `man_email` varchar(50) DEFAULT NULL,
+  `rating` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hostel`
 --
 
-INSERT INTO `hostel` (`reg_no`, `hostel_name`, `address`, `city`, `zip_code`, `hostel_contact`, `floors`, `capacity`, `no_of_rooms`, `fees`, `mess`, `wifi`, `gym`, `bank`, `medical`, `telephone`, `amphi`, `transport`, `laundry`, `study`, `facilities`, `man_email`) VALUES
-('4415292600', 'Ramesh Hostel', '645, Baugh-E-Burhani, 3rd Floor, 1st Mil', 'Mumbai', '400001', '9665880882', 4, 140, 70, 582245, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, '', 'mariyam.a@gmail.com');
+INSERT INTO `hostel` (`reg_no`, `hostel_name`, `address`, `city`, `zip_code`, `hostel_contact`, `floors`, `capacity`, `no_of_rooms`, `fees`, `mess`, `wifi`, `gym`, `bank`, `medical`, `telephone`, `amphi`, `transport`, `laundry`, `study`, `facilities`, `man_email`, `rating`) VALUES
+('4415292600', 'Ramesh Hostel', '645, Baugh-E-Burhani, 3rd Floor, 1st Mil', 'Mumbai', '400001', '9665880882', 4, 140, 70, 55000, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 'Close from CST station', 'mariyam.a@gmail.com', 0),
+('4415292604', 'Gamma Hostel', '101, Delta, Hiranandani Garden, Hiranand', 'Mumbai', '400076', '9874568899', 3, 110, 55, 65000, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 'Close to Powai station', 'kumari.p@gmail.com', 0),
+('4563289630', 'Alpha Hostel', '83 , Kaushalya Bhawan, Chappal Market, S', 'Delhi', '110006', '9875644789', 3, 120, 60, 90000, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 'Close from Delhi Metro Station', 'ramesh.g@gmail.com', 0),
+('7854123306', 'Beta Hostel', '152 , / Manorama Ganj, Dey Tower', 'Bangalore', '452001', '9301247856', 5, 160, 80, 80000, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 'Close to Bangalore Station', 'suresh.j@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -79,7 +83,13 @@ CREATE TABLE `images` (
 
 INSERT INTO `images` (`id`, `file_name`, `uploaded_on`, `reg_no`) VALUES
 (1, 'img 1.jpg', '2019-10-28 00:03:45', '4415292600'),
-(2, 'img 2.jpg', '2019-10-28 00:03:45', '4415292600');
+(2, 'img 2.jpg', '2019-10-28 00:03:45', '4415292600'),
+(3, 'img 3.jpg', '2019-10-29 10:16:43', '4563289630'),
+(4, 'img 4.jpg', '2019-10-29 10:16:43', '4563289630'),
+(5, 'img 5.jpg', '2019-10-29 10:20:54', '7854123306'),
+(6, 'img 6.jpg', '2019-10-29 10:20:54', '7854123306'),
+(7, 'img 7.jpg', '2019-10-29 16:38:18', '4415292604'),
+(8, 'img 8.jpg', '2019-10-29 16:38:18', '4415292604');
 
 -- --------------------------------------------------------
 
@@ -103,7 +113,10 @@ CREATE TABLE `manager` (
 --
 
 INSERT INTO `manager` (`email`, `name`, `password`, `contact`, `bank_name`, `branch_name`, `account_no`, `ifsc_code`) VALUES
-('mariyam.a@gmail.com', 'Mariyam Arsiwala', 'Mariyam#123', '9665880882', 'Syndicate', 'Bhiwandi', '2154666365544', 'SYNB8453212');
+('kumari.p@gmail.com', 'KumariÂ Patla', 'Kumari#123', '9687456321', 'SBI Bank', 'Powai', '9874564789212', 'SBIB8453217'),
+('mariyam.a@gmail.com', 'Mariyam Arsiwala', 'Mariyam#123', '9665880882', 'Syndicate Bank', 'Bhiwandi', '2154666365544', 'SYNB8453212'),
+('ramesh.g@gmail.com', 'Ramesh Gaikwad', 'Ramesh#123', '9863524123', 'Bank of India', 'Gurgaon', '7896541239852', 'BOIB8453142'),
+('suresh.j@gmail.com', 'Suresh Jha', 'Suresh#123', '8567456321', 'Yes Bank', 'Jayanagar', '6574123025632', 'YESB0000197');
 
 -- --------------------------------------------------------
 
@@ -164,7 +177,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
