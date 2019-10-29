@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['success'])){
+    header('location:user_page.php');  
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +13,9 @@ session_start();
     <title>Hostel Management</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/trevo.css">
     <link rel="stylesheet" type="text/css" href="css/hostel_page_1.css">
+    
     <link href="https://fonts.googleapis.com/css?family=Acme|Berkshire+Swash|Lobster|PT+Sans+Narrow|Patua+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Black+Ops+One" rel="stylesheet">
@@ -87,72 +93,48 @@ session_start();
         <br>
     </div>
     <div class="container">
-        <form method="POST" action="connect.php">
+        <form method="POST" action="hostel_page.php">
             <div class="row">
                 <div class="col-md-2">
                     <div class="form-group "><i class="fa fa-map-marker input-icon "></i>
-                        <label class="labell">Where</label>
-                        <span class="twitter-typeahead" style="position: relative; display: block; direction: ltr;">
-                                
-                                <input id="Hotel_location" class=" form-control " placeholder="City, Hostel Name" type="text" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-
-                                <span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none; right: auto;">
-
-                                </span>
-
-                        </span>
+                        <label class="labell">Where</label> 
+                                <input id="hostel_city" required name="city" class=" form-control " placeholder="City, Hostel Name" type="text" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
                     </div>
                 </div>
 
                 <div class="col-md-2">
                     <div class="form-group "><i class="fa fa-inr input-icon "></i>
-                        <label class="labell">Price</label>
-                        <span class="twitter-typeahead" style="position: relative; display: block; direction: ltr;">
-                                
-                                <input id="Hotel_location" class=" form-control " placeholder="Budget" type="text" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-
-                                <span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none; right: auto;">
-
-                                </span>
-
-                        </span>
+                        <label class="labell">Fees</label>
+                        <input id="Hotel_location" required name="fees" class=" form-control " placeholder="Budget" type="text" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="form-group "><i class="fa fa-star input-icon "></i>
-                        <label class="labell">Rating</label>
-                        <span class="twitter-typeahead" style="position: relative; display: block; direction: ltr;">
-                                
+                        <label class="labell">Rating</label>   
                             <div class="stars">
-                    
-                                <form action="">
-                              
-                                  <input class="star star-5" id="star-5" type="radio" name="star"/>
+        
+                                  <input class="star star-5" name="five" id="star-5" type="radio" name="star"/>
                               
                                   <label class="star star-5" for="star-5"></label>
                               
-                                <input class="star star-4" id="star-4" type="radio" name="star"/>
+                                    <input class="star star-4 " name="four" id="star-4" type="radio" name="star"/>
                               
                                   <label class="star star-4" for="star-4"></label>
                               
-                                  <input class="star star-3" id="star-3" type="radio" name="star"/>
+                                  <input class="star star-3" name="three" id="star-3" type="radio" name="star"/>
                               
                                   <label class="star star-3" for="star-3"></label>
                               
-                                  <input class="star star-2" id="star-2" type="radio" name="star"/>
+                                  <input class="star star-2" name="two" id="star-2" type="radio" name="star"/>
                               
                                   <label class="star star-2" for="star-2"></label>
                               
-                                  <input class="star star-1" id="star-1" type="radio" name="star"/>
+                                  <input class="star star-1" name="one" id="star-1" type="radio" name="star"/>
                           
                                   <label class="star star-1" for="star-1"></label>
-                          
-                                </form>
+                
                               </div>
-                                </span>
-
-                        </span>
                     </div>
                 </div>
 
@@ -164,26 +146,26 @@ session_start();
                                 <div class="form-group ">
                                     <i class="fa fa-calendar input-icon input-icon-hightlight"></i>
                                     <label class="labell">Check in</label>
-                                    <input id="Check_in" class="form-control " name="start" type="date">
+                                    <input id="Check_in"  class="form-control " name="start" type="date">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
                                     <label class="labell">Check out</label>
-                                    <input id="Check_out" class="form-control" name="end" type="date">
+                                    <input id="Check_out"  class="form-control" name="end" type="date">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <input id="Search" class="btn btn-info " type="button" value="Search for Hotels" onclick="hotels()">
+            <input class="btn btn-info" type="submit" value="Search" name="search">
         </form>
         <div class="gap gap-small"></div>
     </div>
 
 
-    <br><br><br><br><br><br><br>
+    <?php include('hostel_display.php');?>
 
     <footer id="main-footer">
         <div class="container">
@@ -250,7 +232,7 @@ session_start();
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/custom/hotels.js" type="text/javascript"></script>>
+    <script src="js/custom/hotels.js" type="text/javascript"></script>
 
 
 </body>
