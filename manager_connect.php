@@ -66,7 +66,7 @@ if(isset($_POST['login_manager'])){
     }
     
     else{
-        $auth = "SELECT * FROM users WHERE e_mail='$user_email'";
+        $auth = "SELECT * FROM manager WHERE email='$man_email'";
         $results_email = mysqli_query($conn,$auth);
         $rows = mysqli_fetch_assoc($results_email);
         $man_name = $rows['name'];
@@ -75,7 +75,7 @@ if(isset($_POST['login_manager'])){
             array_push($errors,"Invalid Email");
             ?><script> alert("Invalid Email!"); </script><?php
         }
-        if($rows['e_mail']==$user_email && $rows['password']!=$user_pass){ 
+        if($rows['e_mail']==$man_email && $rows['password']!=$man_pass){ 
             array_push($errors,"Invalid Password");
             ?><script> alert("Invalid Password!"); </script><?php
         }
