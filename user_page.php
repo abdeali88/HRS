@@ -21,7 +21,7 @@
     <div class="first-image navbar-color">
         <nav class="navbar navbar-expand-lg navbar-light static-top" style="background:rgba(0,0,0,0.5);">
             <div class="container">
-                <a class="navbar-brand navbar-img" href="home_page_1.html">
+                <a class="navbar-brand navbar-img" href="home_page_1.php">
                     <img src="img/hotel.png"> &nbsp;Hostel Guru
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,9 +43,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="manager_page.php">MANAGER</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">CONTACT</a>
                         </li>
                     </ul>
                 </div>
