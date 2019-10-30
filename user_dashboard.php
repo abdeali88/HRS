@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['success'])){
+if(!isset($_SESSION['user_email'])){
     $_SESSION['msg']="You must log in to view this page";
     header('location:user_page.php');
 }?>
@@ -48,7 +48,7 @@ if(!isset($_SESSION['success'])){
                         </li>
                         
                         <?php
-                            if(isset($_SESSION['success']))
+                            if(isset($_SESSION['user_email']))
                             {
                                 echo "<li class='nav-item'>";
                                 echo "<a class='nav-link' href='user_dashboard.php'>DASHBOARD</a>";

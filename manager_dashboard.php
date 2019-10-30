@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['success'])){
+if(!isset($_SESSION['manager_email'])){
     $_SESSION['msg']="You must log in to view this page";
     header('location:manager_page.php');
 }
@@ -48,13 +48,13 @@ if(!isset($_SESSION['success'])){
                         </li>
                      
                         <?php
-                            if(isset($_SESSION['success']))
+                            if(isset($_SESSION['manager_email']))
                             {
                                 echo "<li class='nav-item'>";
                                 echo "<a class='nav-link' href='manager_dashboard.php'>DASHBOARD</a>";
                                 echo "</li>";
                                 echo "<li class='nav-item'>";
-                                echo "<a class='nav-link' id='logout' value='Logout' name='logout_user' href='logout_manager.php'>LOGOUT</a>";
+                                echo "<a class='nav-link' id='logout' value='Logout' name='logout_manager' href='logout_manager.php'>LOGOUT</a>";
                                 echo "<script type='text/javascript'>";
                                 echo "document.getElementById('logout').onclick = function ()";
                                 {

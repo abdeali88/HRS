@@ -61,7 +61,7 @@ if(isset($_POST['search'])){
                             <div class="hovereffect2">
                                 <img width="600px" height="300px" vspace="10px" class="img-responsive" src="<?php echo $imageURL; ?>" alt="Hostel Image">
                                 <div class="overlay" >
-                                    <a class="info" href="hostel.php?id=' . $reg_no . '">Reserve Now </a>
+                                    <a class="info" href="hostel.php?id=<?php echo $reg_no; ?>">Reserve Now </a>
                                 </div>
                             </div>
                             <div class="text-rent">
@@ -150,7 +150,7 @@ if($hostel->num_rows > 0){
                             <div class="hovereffect2">
                                 <img width="600px" height="300px" vspace="10px" class="img-responsive" src="<?php echo $imageURL; ?>" alt="Hostel Image">
                                 <div class="overlay" >
-                                    <a class="info" href="hostel.php?id=' . $reg_no . '">Reserve Now </a>
+                                    <a class="info" href="hostel.php?id=<?php echo $reg_no; ?>">Reserve Now </a>
                                 </div>
                             </div>
                             <div class="text-rent">

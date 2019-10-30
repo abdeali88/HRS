@@ -50,8 +50,7 @@
         </nav>
         <!---------------------------------------------------------------------------------------------------------------------------------------------->
         <div class="full-center">
-
-
+        <h4 style="text-align:center;color:red;margin-bottom:50px; margin-top:-50px;">Kindly Login or Register Before Searching for Hostels!</h4>
             <div class="container ">
                 <div class="row ">
 

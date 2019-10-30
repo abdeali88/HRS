@@ -40,21 +40,14 @@ session_start();
                             <a class="nav-link" href="hostel_page.php">HOSTELS</a>
                         </li>
                         <?php
-                            if(isset($_SESSION['success']))
-                            {
+            
                                 if(isset($_SESSION['manager_email']))
                                 {
                                 echo "<li class='nav-item'>";
                                 echo "<a class='nav-link' href='manager_dashboard.php'>DASHBOARD</a>";
                                 echo "</li>";
-                                }
-                                elseif(isset($_SESSION['user_email'])){
                                 echo "<li class='nav-item'>";
-                                echo "<a class='nav-link' href='user_dashboard.php'>DASHBOARD</a>";
-                                echo "</li>";
-                                }
-                                echo "<li class='nav-item'>";
-                                echo "<a class='nav-link' id='logout' value='Logout' name='logout_user' href='logout_manager.php'>LOGOUT</a>";
+                                echo "<a class='nav-link' id='logout' value='Logout' name='logout_manager' href='logout_manager.php'>LOGOUT</a>";
                                 echo "<script type='text/javascript'>";
                                 echo "document.getElementById('logout').onclick = function ()";
                                 {
@@ -62,7 +55,23 @@ session_start();
                                 }
                                 echo "</script>";
                                 echo "</li>";
-                            }
+                            
+                                }
+                                elseif(isset($_SESSION['user_email'])){
+                                echo "<li class='nav-item'>";
+                                echo "<a class='nav-link' href='user_dashboard.php'>DASHBOARD</a>";
+                                echo "</li>";
+                                echo "<li class='nav-item'>";
+                                echo "<a class='nav-link' id='logout' value='Logout' name='logout_user' href='logout_user.php'>LOGOUT</a>";
+                                echo "<script type='text/javascript'>";
+                                echo "document.getElementById('logout').onclick = function ()";
+                                {
+                                    echo 'location.href = "logout_user.php"';
+                                }
+                                echo "</script>";
+                                echo "</li>";
+                            
+                                }
                             else
                             {
                                 echo "<li class='nav-item'>";
