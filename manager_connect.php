@@ -6,6 +6,10 @@ $dbpassword = "";
 $dbname = "hrs";
 $conn = mysqli_connect($host,$dbusername,$dbpassword,$dbname);
 
+if(isset($_SESSION['manager_email'])){
+    header('location:manager_dashboard.php');
+}
+
 if(isset($_POST['proceed']))
 {
     $man_name = mysqli_real_escape_string($conn, $_POST['man_name']); 

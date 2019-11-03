@@ -5,6 +5,10 @@ $dbusername = "root";
 $dbpassword = "";
 $dbname = "hrs";
 $conn = mysqli_connect($host,$dbusername,$dbpassword,$dbname);
+if(isset($_SESSION['user_email'])){
+    header('location:user_dashboard.php');
+}
+
 if(isset($_POST['register_user']))
 {
 $user_name = mysqli_real_escape_string($conn, $_POST['user_name_signup']); 
