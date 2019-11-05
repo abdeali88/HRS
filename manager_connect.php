@@ -20,6 +20,7 @@ if(isset($_POST['proceed']))
     $acc_no = mysqli_real_escape_string($conn, $_POST['acc_no']);
     $ifsc_code = mysqli_real_escape_string($conn, $_POST['ifsc_code']);
     $pass_signup = mysqli_real_escape_string($conn, $_POST['pass_signup']);
+    $pass_signup = md5($pass_signup);
     
     $errors=array();
 
@@ -65,6 +66,7 @@ if(isset($_POST['proceed']))
 if(isset($_POST['login_manager'])){
     $man_email = mysqli_real_escape_string($conn, $_POST['email']); 
     $man_pass =  mysqli_real_escape_string($conn, $_POST['pass']); 
+    $man_pass = md5($man_pass);
     $errors=array();
     if(mysqli_connect_error()){
         die('Connect error ('.mysqli_connect_errno().')'.mysqli_connect_error());

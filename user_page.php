@@ -90,6 +90,8 @@
                                 <label>Password</label>
                                 <input id="pass" name="user_pass_signup" class="form-control" type="password" placeholder="Enter Password" required>
                             </div>
+                        
+                            <span id="pass_match"></span>
                             <div id="meter_wrapper">
                                     <div id="meter"></div>
                             </div>

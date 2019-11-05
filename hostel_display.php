@@ -136,13 +136,19 @@ if(isset($_POST['search'])){
 }
 else{
     ?>
+    <div class="container">
     <p style='color:red' >No Hostels found...</p>
+    <div>
 <?php }
 
 }
 
 else{
-   echo  "<p style='color:red; font-size:20px;' >Enter Filters!</p>";
+
+   echo "<div class='container'>";
+   echo  "<p style='color:red; font-size:20px;' >Enter Filters to find your ideal Hostel!</p>";
+   echo "</div>";
+   echo "<br><br><br><br><br>";
 }
 
 ?> 

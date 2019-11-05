@@ -14,6 +14,7 @@ if(isset($_POST['register_user']))
 $user_name = mysqli_real_escape_string($conn, $_POST['user_name_signup']); 
 $user_email = mysqli_real_escape_string($conn, $_POST['user_email_signup']); 
 $user_pass =  mysqli_real_escape_string($conn, $_POST['user_pass_signup']); 
+$user_pass = md5($user_pass);
 $errors=array();
 if(mysqli_connect_error()){
     die('Connect error ('.mysqli_connect_errno().')'.mysqli_connect_error());
@@ -39,7 +40,8 @@ else{
 }
 if(isset($_POST['login_user'])){
     $user_email = mysqli_real_escape_string($conn, $_POST['user_email_login']); 
-    $user_pass =  mysqli_real_escape_string($conn, $_POST['user_pass_login']); 
+    $user_pass =  mysqli_real_escape_string($conn, $_POST['user_pass_login']);
+    $user_pass = md5($user_pass);
     $errors=array();
     if(mysqli_connect_error()){
         die('Connect error ('.mysqli_connect_errno().')'.mysqli_connect_error());

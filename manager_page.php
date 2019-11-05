@@ -76,14 +76,15 @@
                         <h3 class="mb15">New To Hostel Guru! Sign Up Here </h3>
                         <form name="singupform" action="manager_page.php" method="POST" onSubmit="return signupmethod()">
                         	<h5>Personal Details</h5>
-                            <div class="form-group" style="width:400px;padding-left:0px;"><i class="fa fa-envelope input-icon input-icon-show"></i>
-                                <label>Email</label>
-                                <input id="c_email" name="email_signup" class="form-control" placeholder="Enter Email" type="text" required>
-                            </div>
                             <div class="form-group" style="width:400px;padding-left:0px;"><i class="fa fa-user input-icon input-icon-show"></i>
                             	<label>Full Name</label>
                                 <input id="fullname" name="man_name" class="form-control" placeholder="Enter Full Name" type="text" required>
                             </div>
+                            <div class="form-group" style="width:400px;padding-left:0px;"><i class="fa fa-envelope input-icon input-icon-show"></i>
+                                <label>Email</label>
+                                <input id="c_email" name="email_signup" class="form-control" placeholder="Enter Email" type="text" required>
+                            </div>
+                            
                             
                             <div class="form-group" style="width:400px;padding-left:0px;"><i class="fa fa-phone input-icon input-icon-show"></i>
                                 <label>Contact</label>
@@ -92,22 +93,24 @@
                             <br>
                             <h5>Bank Details</h5>
                             <div class="form-group" style="width:400px;padding-left:0px;"><i class="fa fa-university input-icon input-icon-show"></i>
-                            	<label>Branch Name</label>
-                                <input id="branch_name" name="branch_name" class="form-control" type="text" placeholder="Enter Branch Name" required>
-                            </div>
-                            <div class="form-group" style="width:400px;padding-left:0px;"><i class="fa fa-university input-icon input-icon-show"></i>
                                 <label>Bank Name</label>
-                                <input id="bank_name" name="bank_name" class="form-control" type="text" placeholder="Enter Bank Name" required>
+                                <input id="bank_name" name="bank_name" class="form-control" type="text" placeholder="Enter Bank Name" >
                             </div>
                             <div class="form-group" style="width:400px;padding-left:0px;"><i class="fa fa-university input-icon input-icon-show"></i>
-                            	<label>IFSC Code</label>
-                                <input id="ifsc_code" name="ifsc_code" class="form-control" type="text" pattern="[A-Z]{4}[0-9]{7}" placeholder="Enter IFSC Code" required>
+                            	<label>Branch Name</label>
+                                <input id="branch_name" name="branch_name" class="form-control" type="text" placeholder="Enter Branch Name" >
                             </div>
                             <div class="form-group" style="width:400px;padding-left:0px;"><i class="fa fa-university input-icon input-icon-show"></i>
                             	<label>Account Number</label>
-                                <input id="account_no" name="acc_no" class="form-control" type="text" pattern="[0-9a-zA-Z]{10,16}" placeholder="Enter Account Number" required>
+                                <input id="account_no" name="acc_no" class="form-control" type="text" pattern="[0-9a-zA-Z]{10,16}" placeholder="Enter Account Number" >
                             </div>
-                            <br>
+                            
+                            <div class="form-group" style="width:400px;padding-left:0px;"><i class="fa fa-university input-icon input-icon-show"></i>
+                            	<label>IFSC Code</label>
+                                <input id="ifsc_code" name="ifsc_code" class="form-control" type="text" pattern="[A-Z]{4}[0-9]{7}" placeholder="Enter IFSC Code" >
+                            </div>
+                            
+                            
                             <div class="form-group"style="width:400px;padding-left:0px;"><i class="fa fa-lock input-icon input-icon-show"></i>
                                 <label>Password</label>
                                 <input id="pass" name="pass_signup" class="form-control" type="password" placeholder="Enter Password" required>
