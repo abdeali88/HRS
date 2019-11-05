@@ -276,13 +276,13 @@ label.star:before {
                                 <div class="form-group ">
                                     <i class="fa fa-calendar input-icon input-icon-hightlight"></i>
                                     <label class="labell">Check in</label>
-                                    <input id="Check_in"  class="form-control " name="start" type="date">
+                                    <input id="Check_in"  class="form-control " name="start" type="date" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
                                     <label class="labell">Check out</label>
-                                    <input id="Check_out"  class="form-control" name="end" type="date">
+                                    <input id="Check_out"  class="form-control" name="end" type="date" required>
                                 </div>
                             </div>
                         </div>

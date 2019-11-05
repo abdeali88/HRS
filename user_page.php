@@ -89,11 +89,11 @@
                             <div class="form-group "><i class="fa fa-lock input-icon input-icon-show"></i>
                                 <label>Password</label>
                                 <input id="pass" name="user_pass_signup" class="form-control" type="password" placeholder="Enter Password" required>
-                                <div id="meter_wrapper">
-                                    <div id="meter"></div>
-                                </div>
-                                <span id="pass_type"></span>
                             </div>
+                            <div id="meter_wrapper">
+                                    <div id="meter"></div>
+                            </div>
+                                <span id="pass_type"></span><br>
                             <input class="btn btn-info" type="submit" value="Sign up" name="register_user">
                             <input class="btn btn-info" type="reset" value="Clear" style="margin-left: 20px; padding: 6px 18px">
                         </form>

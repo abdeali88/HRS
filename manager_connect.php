@@ -56,6 +56,7 @@ if(isset($_POST['proceed']))
             $_SESSION['acc_no'] = $acc_no;
             $_SESSION['ifsc_code'] = $ifsc_code;
             $_SESSION['manager_password'] = $pass_signup;
+            $_SESSION['reg_no']=$reg_no;
             header('location:single_hostel.php');
         }
     }
@@ -74,18 +75,24 @@ if(isset($_POST['login_manager'])){
         $results_email = mysqli_query($conn,$auth);
         $rows = mysqli_fetch_assoc($results_email);
         $man_name = $rows['name'];
+
+        $a = "SELECT * FROM hostel WHERE man_email='$man_email'";
+        $b = mysqli_query($conn,$a);
+        $c = mysqli_fetch_assoc($b);
+        $reg_no = $c['reg_no'];
      
         if(empty($rows)){ 
             array_push($errors,"Invalid Email");
             ?><script> alert("Invalid Email!"); </script><?php
         }
-        if($rows['e_mail']==$man_email && $rows['password']!=$man_pass){ 
+        if($rows['email']==$man_email && $rows['password']!=$man_pass){ 
             array_push($errors,"Invalid Password");
             ?><script> alert("Invalid Password!"); </script><?php
         }
-        if(count($errors)==0){
+        if($rows['email']==$man_email && $rows['password']==$man_pass && count($errors)==0){
             $_SESSION['manager_email'] = $man_email;
             $_SESSION['manager_name'] = $man_name;
+            $_SESSION['reg_no'] = $reg_no;
             $_SESSION['success'] =  "You are logged in";
             header('location:manager_dashboard.php');
         }    

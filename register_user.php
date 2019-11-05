@@ -1,4 +1,4 @@
-<!-- $query = "INSERT INTO reg_student(aadhaar,address,contact,institute,degree,course,year,file_name,reg_no)" ; -->
+
 <?php
 session_start();
 if(isset($_SESSION['manager_email'])){
@@ -22,6 +22,14 @@ $id=$_GET['id'];
 $email = $_SESSION['user_email'];
 // echo "$id";
  
+$qu = "SELECT * from student_regd where email='$email'";
+$res = mysqli_query($conn,$qu);
+$rows = mysqli_fetch_assoc($res);
+if(!empty($rows)){
+    echo "<script> alert('You have already Registered for a hostel')</script>";
+    
+}
+
 
     if(isset($_POST['register_student'])){
         $aadhaar = $_POST['aadhaar'];
@@ -248,7 +256,7 @@ footer#main-footer {
             <div class="container ">
                 <div class="row ">
                     <div class="col-md-12">
-                        <h3 class="mb15">Peronal Details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Academic Details</h3>
+                        <h3 class="mb15">Personal Details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Academic Details</h3>
                         <form method="POST" action="register_user.php?id=<?php echo $id?>" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-5"><i class="fa fa-address-card input-icon input-icon-show"></i>

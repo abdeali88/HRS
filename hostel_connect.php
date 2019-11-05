@@ -128,6 +128,7 @@ if(isset($_POST['register_manager']))
                     $_SESSION['rooms']=$rooms;
                     $_SESSION['capacity']=$capacity;
                     $_SESSION['other_facilities']=$other_facilities;
+                    $_SESSION['reg_no'] = $reg_no;
 
                     $_SESSION['success'] =  "You are logged in";
                     header('location:manager_dashboard.php');

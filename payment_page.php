@@ -450,7 +450,7 @@ footer#main-footer {
                                 <p class=""><?php echo $start?></p>
                             </div><i class="fa fa-arrow-right float arrow-position"></i>
                             <div class="">
-                                <p class=""><?php echo $start?></p>
+                                <p class=""><?php echo $end?></p>
                             </div>
 
                         </div>

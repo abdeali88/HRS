@@ -391,17 +391,21 @@ table { border-collapse: separate; border-spacing: 10px; }
 <br>
 <div class="container">
 	<table style="font-family: 'Acme', sans-serif; font-size:20px;">
+        <tr>
+			<td>Contact</td>
+			<td><?php echo$row['hostel_contact']?></td>
+		</tr>
 		<tr>
 			<td>FLOORS</td>
 			<td><?php echo$row['floors']?></td>
 		</tr>
-		<tr>
-			<td>AVAILABLE ROOMS</td>
-			<!-- <td><strong><?php echo$row['rooms']?></strong></td> -->
-		</tr>
+		<!-- <tr>
+			<td>AVAILABLE ROOMS</td> -->
+			<!-- <td><strong></strong></td>
+		</tr> -->
 		<tr>
 			<td>CAPACITY</td>
-			<td><?php echo$row['floors']?></td>
+			<td><?php echo$row['capacity']?></td>
 		</tr>
 		<tr>
 			<td>FEES PER YEAR</td>
@@ -501,7 +505,7 @@ table { border-collapse: separate; border-spacing: 10px; }
     <script type="text/javascript" src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/main.js"></script>
-    <script type="text/javascript" src="js/custom/user.js"></script>
+
 
 </body>
 </html>
