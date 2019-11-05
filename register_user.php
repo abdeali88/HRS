@@ -26,8 +26,9 @@ $qu = "SELECT * from student_regd where email='$email'";
 $res = mysqli_query($conn,$qu);
 $rows = mysqli_fetch_assoc($res);
 if(!empty($rows)){
-    echo "<script> alert('You have already Registered for a hostel')</script>";
-    
+    $_SESSION['already_registered']=1;
+    header('location:user_dashboard.php');
+ 
 }
 
 
@@ -314,19 +315,7 @@ footer#main-footer {
                                 <input id="year" name="year" class="form-control" type="text" placeholder="Year of study" required>
                             </div>
                         </div><br>
-                        <div class="row">
-                        <div class="col-md-5">
-                                    <i class="fa fa-calendar input-icon input-icon-hightlight"></i>
-                                    <label>Check in year</label>
-                                    <input id="Check_in"  class="form-control " name="start" type="date" required>
-                            </div>
-                            <div class="col-md-2"></div>
-                            <div class="col-md-5">
-                            <i class="fa fa-calendar input-icon input-icon-hightlight"></i>
-                            <label>Check out year</label>
-                                    <input id="Check_out"  class="form-control" name="end" type="date" required>
-                            </div>
-                        </div>
+                        
                         <br><br>
                         <div class="row">
                             <div class="col-md-5"></div>

@@ -10,6 +10,18 @@ if(isset($_POST['search'])){
     $one =  isset($_POST['one']) ? 1 : 0;
     $check_in = $_POST['start'];
     $check_out = $_POST['end'];
+    $_SESSION['start'] = $check_in;
+    $_SESSION['end'] = $check_out;
+
+    ?> 
+    <script> 
+    document.getElementById('hostel_city').value='<?php echo $city ?>';
+    document.getElementById('fees').value='<?php echo $fees ?>';
+    document.getElementById('Check_in').value='<?php echo $check_in ?>';
+    document.getElementById('Check_out').value='<?php echo $check_out ?>';
+    </script>
+
+    <?php 
 
     if($check_in>=$check_out){
         echo "<script> alert('Please Enter a valid checkout date!');</script>";
@@ -128,18 +140,21 @@ if(isset($_POST['search'])){
 
     }
     else{
-        echo "<p style='color:red' >No Hostels found...</p>";
+        echo "<div class='container'>";
+        echo "<p style='color:red;font-size:20px; '>No Hostels found...</p>";
+        echo "</div>";
+        echo "<br><br><br><br><br>";
     }
 }
 
 
 }
 else{
-    ?>
-    <div class="container">
-    <p style='color:red' >No Hostels found...</p>
-    <div>
-<?php }
+    echo "<div class='container'>";
+    echo "<p style='color:red;font-size:20px;' >No Hostels found...</p>";
+    echo "</div>";
+    echo "<br><br><br><br><br>";
+ }
 
 }
 

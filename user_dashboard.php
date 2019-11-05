@@ -175,6 +175,16 @@ table { border-collapse: separate; border-spacing: 20px; }
         
         if(mysqli_num_rows($results)>0)
         {
+            //if user has already registered for a hostel
+            if(isset($_SESSION['already_registered'])){
+                ?> 
+                <div class="container">
+                <h3 style="color:red;">Dear User You have Already Registered for a Hostel!</h3>
+                </div>
+                <?php
+               unset($_SESSION['already_registered']);
+                
+            }
             $user_rows = $results->fetch_array();
             $user_name = $_SESSION['user_name'];
             $contact = $user_rows['contact'];
@@ -205,6 +215,7 @@ table { border-collapse: separate; border-spacing: 20px; }
             $fees = $hostel_rows['fees'];
             $total = ((int)$fees*(int)$diff->y) + (((int)$fees/12)*(int)$diff->m);
             $total = (int)$total;
+
 
 
             ?>

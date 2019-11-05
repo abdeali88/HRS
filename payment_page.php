@@ -17,6 +17,8 @@ if(mysqli_connect_error()){
 }
 
 $id=$_GET['id'];
+$start = $_SESSION['start'];
+$end = $_SESSION['end'];
 $email = $_SESSION['user_email'];
 $aadhaar = $_GET['aadhaar'];
 $contact = $_GET['contact'];
@@ -34,8 +36,7 @@ $image = $conn->query("SELECT * from images where reg_no=$id limit 1");
 $row_image = $image->fetch_assoc();
 $imageURL = 'uploads/'.$row_image["file_name"];
 
-$start = $_GET['start'];
-$end = $_GET['end'];
+
 $d1 = new DateTime($start);
 $d2 = new DateTime($end);
 $diff = $d2->diff($d1);

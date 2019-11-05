@@ -4,6 +4,7 @@ if(!isset($_SESSION['manager_email']) && !isset($_SESSION['user_email'])){
     // $_SESSION['msg']="You must log in to view this page";
     header('location:user_page.php');
 }
+
 $host = "localhost";
 $dbusername = "root";
 $dbpassword = "";
@@ -98,6 +99,8 @@ function make_slides($conn)
  }
  return $output;
 }
+
+
 
 ?>
 
@@ -420,7 +423,7 @@ table { border-collapse: separate; border-spacing: 10px; }
     </h4>
 		<br>
 		<!-- Enter the  URL for payment page with the correct parameters-->
-		<button style="display: block; margin: 0 auto;" class='btn btn-primary' onclick="location.href ='register_user.php?id=<?php echo $reg_no; ?>'">Register and Pay</button>
+		<button style="display: block; margin: 0 auto;" name='register_and_pay' class='btn btn-primary' onclick="location.href ='register_user.php?id=<?php echo $reg_no; ?>'">Register and Pay</button>
 	
 </div>
 

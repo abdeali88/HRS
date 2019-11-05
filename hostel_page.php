@@ -93,50 +93,6 @@ footer#main-footer {
     padding: 10px;
 }
 
-/* div.stars {
-    width: 270px;
-    display: inline-block;
-    margin-top: -10px;
-    padding-right: 60px;
-    margin-left: -10px;
-    padding-bottom: 5px;
-}
-
-input.star {
-    display: none;
-}
-
-label.star {
-    float: right;
-    padding: 7px;
-    font-size: 30px;
-    color: rgb(144, 143, 143);
-    transition: all .2s;
-}
-
-input.star:checked~label.star:before {
-    content: '\f005';
-    color: #FD4;
-    transition: all .25s;
-}
-
-input.star-5:checked~label.star:before {
-    color: #FE7;
-    text-shadow: 0 0 20px #952;
-}
-
-input.star-1:checked~label.star:before {
-    color: #F62;
-}
-
-label.star:hover {
-    transform: rotate(-15deg) scale(1.3);
-}
-
-label.star:before {
-    content: '\f006';
-    font-family: FontAwesome;
-} */
 
 .labell {
     font-weight: bold;
@@ -235,40 +191,11 @@ label.star:before {
                 <div class="col-md-2">
                     <div class="form-group "><i class="fa fa-inr input-icon "></i>
                         <label class="labell">Fees</label>
-                        <input id="Hotel_location" required name="fees" class="form-control" placeholder="Budget" type="text" style="position: relative; vertical-align: top; background-color: transparent;">
+                        <input id="fees" required name="fees" class="form-control" placeholder="Budget" type="text" style="position: relative; vertical-align: top; background-color: transparent;">
                     </div>
                 </div>
 
-                <!-- <div class="col-md-3">
-                    <div class="form-group "><i class="fa fa-star input-icon "></i>
-                        <label class="labell">Rating</label>   
-                            <div class="stars">
-        
-                                  <input class="star star-5" name="five" id="star-5" type="radio" />
-                              
-                                  <label class="star star-5" for="star-5"></label>
-                              
-                                    <input class="star star-4 " name="four" id="star-4" type="radio" />
-                              
-                                  <label class="star star-4" for="star-4"></label>
-                              
-                                  <input class="star star-3" name="three" id="star-3" type="radio"/>
-                              
-                                  <label class="star star-3" for="star-3"></label>
-                              
-                                  <input class="star star-2" name="two" id="star-2" type="radio"/>
-                              
-                                  <label class="star star-2" for="star-2"></label>
-                              
-                                  <input class="star star-1" name="one" id="star-1" type="radio"/>
-                          
-                                  <label class="star star-1" for="star-1"></label>
-                
-                              </div>
-                    </div>
-                </div> -->
-
-
+               
                 <div class="col-md-5">
                     <div class="" data-date-format="MM d, D">
                         <div class="row">
